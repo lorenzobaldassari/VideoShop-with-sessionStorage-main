@@ -12,7 +12,7 @@
 
 @media screen and (min-width: 576px) {
   .box {
-    height: 630px !important;
+    height: 650px !important;
   }
   .imgBox {
     height: 350px !important;
@@ -21,7 +21,7 @@
 
 @media screen and (min-width: 768px) {
   .box {
-    height: 630px !important;
+    height: 590px !important;
   }
   .imgBox {
     height: 300px !important;
@@ -42,6 +42,11 @@ body {
   /* color: yellow; */
   /* font-family: 'Playpen Sans', cursive;   */
   font-family: "Open Sans", sans-serif;
+}
+header{
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.4)  
+  
 }
 
 .hover:hover {
@@ -84,19 +89,37 @@ body {
   border-radius: 50px;
   padding: 0 10px;
 }
-/* .cartBox{
- width: 100px;
-}
-.fas{
-  width: 100px;
+ /* .cartBox{
+ height: 100px !important;
 } */
 
+/* .fas{
+  width: 100px;
+}  */
+#boxCart{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#cartPosition{
+  width: 350px;
+  
+}
+.back{
+  background-color: grey;
+}
 #counter {
-  left: 40%;
+  top: 10px !important;
   z-index: 5;
+ right: 10%;
 }
 #cartIcon {
-  left: 20% !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+#cartel{
+  height: 100px !important;
 }
 
 .white {
@@ -121,7 +144,12 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
-  line-clamp: 1;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+#tot{
+  background-color: black;
+  border-radius: 60px;
+  padding: 5px 10px;
 }

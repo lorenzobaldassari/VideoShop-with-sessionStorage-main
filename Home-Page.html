@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/homecss.css" />
   </head>
   <body>
-    <header>
+    <header class="position-sticky top-0">
       <!-- INIZIO NAVBAR -->
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -58,17 +58,23 @@
               </li>
             </ul>
           </div>
-          <div class="cartBox">
-            <div class="position-relative text-danger fw-bold fs-3">
-              <p id="counter" class="position-absolute">0</p>
-              <i
-                id="cartIcon"
-                class="fa-3x fas fa-shopping-cart position-absolute text-dark"
-              ></i>
+          <div id="boxCart">
+            <div class="cartBox">
+              <div
+                class="position-relative text-danger fw-bold fs-3"
+                id="cartel"
+              >
+                <p id="counter" class="position-absolute">0</p>
+                <i
+                  id="cartIcon"
+                  class="fa-3x fas fa-shopping-cart position-absolute text-dark"
+                ></i>
+              </div>
             </div>
-
-            <div id="cartPosition" class="d-flex flex-column align-itmes-start">
-              <p>totale carrello <span id="tot">0 </span></p>
+            <div id="cartPosition" class=" ">
+              <div class="d-flex justify-content-end">
+                <p class="fw-bold fs-5 me-4 ">totale carrello <span id="tot" class="fs-4 text-danger ms-4">0 </span></p>
+              </div>
             </div>
           </div>
         </div>

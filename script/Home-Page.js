@@ -2,11 +2,9 @@ const apiAddress = `data.json`;
 
 const rowPosition = document.getElementById(`rowPosition`);
 const arrayOfGames = JSON.parse(localStorage.getItem(`arrayOfGames`));
-console.log(arrayOfGames)
+console.log(arrayOfGames);
 const getData = function () {
   for (i = 0; i < arrayOfGames.length; i++) {
-    
-
     if (arrayOfGames[i].price === 0) {
       arrayOfGames[i].price = `Gratis`;
     }
@@ -65,25 +63,47 @@ const addToChart = function (e) {
     e.target.parentElement.parentElement.children[3].children[0].innerText
   );
   const cartBox = document.createElement(`div`);
+  cartBox.classList.add(
+    `d-flex`,
+    `justify-content-between`,
+    `back`,
+    `text-white`
+  );
   const titleToAdd = document.createElement(`p`);
-  titleToAdd.classList.add = `fw-semibold`;
+  const priceToAdd = document.createElement(`p`);
+  titleToAdd.classList.add(`fw-semibold`, `mb-0`, `px-3`);
+  priceToAdd.classList.add(`fw-semibold`, `me-3`, `mb-0`);
   total =
     total +
     parseFloat(
       e.target.parentElement.parentElement.children[3].children[0].innerText
     );
-  tot.innerText = `${total} $`;
+  roundTot = total.toFixed(2);
+  tot.innerText = `${roundTot} $`;
   // finire i collegamenti
-  cartBox.innerHTML = `${e.target.parentElement.parentElement.children[0].innerText}   
-     \u00a0 \u00a0 \u00a0
-    ${e.target.parentElement.parentElement.children[3].children[0].innerText} <i class="fas fa-trash-alt ms-2"></i>`;
-  const trashCan = document.createElement(`div`);
+  titleToAdd.innerText = `${e.target.parentElement.parentElement.children[0].innerText}`;
+  priceToAdd.innerHTML = `${e.target.parentElement.parentElement.children[3].children[0].innerText}<i class="fas fa-trash-alt ms-2"></i>`;
+  // cartBox.innerHTML = `${e.target.parentElement.parentElement.children[0].innerText}
+  //    \u00a0 \u00a0 \u00a0
+  //   ${e.target.parentElement.parentElement.children[3].children[0].innerText} <i class="fas fa-trash-alt ms-2"></i>`;
+  // const trashCan = document.createElement(`div`);
   // trashCan.innerHTML = `<i class="fas fa-trash-alt ms-2"></i>`;
   cartBox.appendChild(titleToAdd);
-  cartBox.appendChild(trashCan);
+  cartBox.appendChild(priceToAdd);
+  // cartBox.appendChild(trashCan);
   cartPosition.appendChild(cartBox);
   counter.innerText = count;
-  trashCan.addEventListener(`click`, function (e) {
-    console.log(e.target.parentElement);
+  priceToAdd.addEventListener(`click`, function (e) {
+    console.log(parseFloat(e.target.parentElement.innerText));
+    // console.log((e.target.parentElement.firstChild.innerText));
+    // let a = e.target.parentElement.lastChild.innerText
+    // console.log(a);
+    e.target.parentElement.parentElement.remove();
+    total = total - parseFloat(e.target.parentElement.innerText);
+    roundTot = total.toFixed(2);
+
+    tot.innerText = `${roundTot} $`;
+    count--;
+    counter.innerText = count;
   });
 };

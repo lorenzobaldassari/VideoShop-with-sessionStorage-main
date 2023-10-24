@@ -28,7 +28,7 @@ arrayOfGames.forEach((element) => {
 
 button.addEventListener(`click`, function (e) {
   e.preventDefault();
-  if (eventId !== 0) {
+  if (eventId) {
     const array = [];
     arrayOfGames.forEach((element) => {
       if (element.id !== eventId) {
